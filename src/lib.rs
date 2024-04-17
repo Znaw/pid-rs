@@ -158,6 +158,23 @@ pub struct ControlOutput<T: Number> {
     pub output: T,
 }
 
+impl Pid<f32> {
+    pub const fn default() -> Self {
+        Self {
+            setpoint: 0.0,
+            output_limit: 0.0,
+            kp: 0.0,
+            ki: 0.0,
+            kd: 0.0,
+            p_limit: 0.0,
+            i_limit: 0.0,
+            d_limit: 0.0,
+            integral_term: 0.0,
+            prev_measurement: None,
+        }
+    }
+}
+
 impl<T> Pid<T>
 where
     T: Number,
